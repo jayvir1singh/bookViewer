@@ -1,0 +1,188 @@
+body {
+    background-color:#f2f2f2;
+}
+
+#pagesPickerContainer {
+    display: inline;
+}
+
+#pageContent {
+    max-width: 500px;
+}
+
+#pageContent img {
+    min-height: 300px;
+    min-width: 300px;
+}
+
+#cover img {
+    min-height: 100px;
+    min-width: 100px;
+}
+
+#pageContent img, #cover img {
+    border: 1px black solid;
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
+    background-image:url('loading.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#pageContent img:not(:first-child) {
+    margin-top:10px;
+}
+
+#pageContent.PagesNSP img {
+    margin-top:0;
+    border:none;
+}
+
+#cover {
+    max-width: 274;
+}
+
+#description {
+    background-color:white;
+    padding: 5px;
+    max-width: 500px;
+    height: 100px;
+    overflow: auto;
+    border: 1px solid black;
+}
+
+#pagesPrev, #pagesNext, #pagesNext {
+    display: inline-block;
+    opacity: 0.7;
+    font-size: 37;
+    margin:5px 4px;
+    padding: 5px 20px;
+    background-color: black;
+    color: white;
+    cursor:default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#chaptersPicker {
+    width: 200px;
+}
+
+button, input, select, #pagesPrev, #pagesNext, #pwaInstallInput {
+    background-color: white;
+    color: black;
+    border: 1px black solid;
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding:2px 5px;
+    margin: 5px;
+}
+
+button:focus, input:focus, select:focus, #pagesPrev:focus, #pagesNext:focus, #pwaInstallInput:focus {
+    outline: none;
+    border:1px solid #9dbff6;
+}
+
+input[type=checkbox] {
+    margin: 0px;
+    padding: 4px;
+    width: 15px;
+    height: 15px;
+    -moz-appearance:textfield;
+}
+
+input[type=checkbox]:checked {
+    background-image:url('checkmark_black.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin:0;
+}
+
+#settingsContainer, #info, #title {
+    width: fit-content;
+    padding: 10px;
+}
+
+#info, #settingsContainer {
+    margin-bottom: 25px;
+}
+
+#title {
+    margin: 6px;
+}
+
+@media only screen and (max-width: 645px) {
+    #navBar > * {
+        margin-bottom: 13px;
+        display: block;
+    }
+}
+
+#description, #coverImage, #pageContent img, #settingsContainer, #info, #title {
+    background-color: white;
+    border: 1px black solid;
+    color: black;
+}
+
+#settingsContainer > input, #settingsContainer > button, #settingsContainer > div,  #info > * {
+    background-color: #e8e8e8;
+}
+
+
+#settingsContainer > p {
+    margin:0;
+}
+
+#settingsContainer > p:not(:first-child) {
+    margin-top: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00000038;
+    border-radius: 15px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{ 
+    background: #0000006b;
+}
+
+::-webkit-scrollbar-track {
+    background: #4e4e4e3d;
+    border-radius: 15px;
+}
+
+#filesInput {
+    display: none;
+}
+
+#pwaInstallInput {
+    display: none;
+    padding:10px;
+    position: fixed;
+    top:0;
+    right: 0;
+    margin: 10px;
+    opacity: 0.7;
+    cursor:default;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

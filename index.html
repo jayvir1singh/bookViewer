@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Book Viewer</title>
+        <link rel="icon" type="image/png" href="iconMask.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="dark.css" id="darkStyleSheet">
+
+        <link rel="manifest" href="manifest.json">
+        <script src="index.js" defer></script>
+        <script src="settings.js" defer></script>
+    </head>
+    <body>
+        <div id="pwaInstallInput" tabindex="0">install</div>
+        <center>
+            <button id="settingsToggleButton">Toggle Settings</button>
+            <div id="settingsContainer">
+                <p>Settings Id:</p>
+                <input id="settingsIdInput" autocorrect="none" autocapitalize="none" autocomplete="none">
+                <br>
+                <button id="settingsLoadButton">Load Settings</button>
+                <button id="settingsSaveButton">Save Settings</button>
+                <button id="settingsClearButton">Clear Settings</button>
+                <p>File URL:</p>
+                <input id="urlInput" autocorrect="none" autocapitalize="none" autocomplete="none" value="not available">
+                <br>
+                <button id="urlSubmit">Submit</button>
+                <p>Load Space:</p>
+                <input id="lazyLoadSpaceInput" value="(0,0),(0,0)" autocorrect="none" autocapitalize="none" autocomplete="none">
+                <p>Load Time:</p> 
+                <input id="lazyLoadTimeoutInput" type="number" value="1000" autocorrect="none" autocapitalize="none" autocomplete="none">
+                <p>Scroll History: <input id="scrollHistoryInput" type="checkbox" checked></p>
+                <p>Dark Theme: <input id="darkEnabledInput" type="checkbox" checked></p>
+                <p>Hide Cover Art: <input id="infoEnabledInput" type="checkbox"></p>
+                <p>Cache Files: <input id="filesCacheInput" type="checkbox" checked></p>
+                <br>
+                <input type="file" id="filesInput" webkitdirectory>
+                <button id="filesButton">Choose Directory</button>
+                <br>
+                <button id="toggleFullscreenButton">Toggle Fullscreen</button>
+            </div>
+
+            <div id="info">
+                <h1 id="title"></h1>
+                <div id="cover">
+                    <img id="coverImage">
+                </div>
+                <br>
+                <div id="description"></div>
+            </div>
+
+            <div id="navBar">
+                Chapter:
+                <select id="chaptersPicker"></select>
+                Reading Type:
+                <select id="typePicker">
+                    <option value="one">One Page</option>
+                    <option value="all">All Pages</option>
+                    <option value="allNSP">All Pages (No Spaces)</option>
+                </select>
+                <div id="pagesPickerContainer">
+                    Page:
+                    <select id="pagesPicker"></select>
+                </div>
+            </div>
+
+            <div id="pager">
+                <div id="pagesPrev" tabindex="0">&#9001; Prev</div>
+                <div id="pagesNext" tabindex="0">Next &#9002;</div>
+                <div id="pageContent"></div>
+                <div id="pagesPrev" tabindex="0">&#9001; Prev</div>
+                <div id="pagesNext" tabindex="0">Next &#9002;</div>
+            </div>
+        </center>
+    </body>
+</html>

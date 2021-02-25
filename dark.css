@@ -1,0 +1,46 @@
+body {
+    background-color: #202020;
+    color:white;
+}
+
+#description, #coverImage, #pageContent img, #settingsContainer, #info, #title, button, input, select, #pagesPrev, #pagesNext, #pwaInstallInput {
+    background-color: black;
+    border:1px solid white;
+    color: white;
+}
+
+#settingsContainer > input, #settingsContainer > button, #settingsContainer > div, #info > * {
+    background-color: #353438;
+}
+
+#pagesPrev, #pagesNext, #pwaInstallInput {
+    opacity: 1;
+}
+
+input[type=checkbox]:checked {
+    background-image:url('checkmark_white.png');
+}
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #bfbfbf14;
+    border-radius: 15px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{ 
+    background: #bfbfbf6b;
+}
+
+::-webkit-scrollbar-track {
+    background: #00000017;
+    border-radius: 15px;
+}

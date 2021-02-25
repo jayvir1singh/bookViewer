@@ -1,0 +1,18 @@
+{
+    "short_name": "Book Viewer",
+    "name": "Book Viewer",
+    "icons": [{
+        "src": "/bookViewer/icon.png",
+        "type": "image/png",
+        "sizes": "512x512"
+    }, {
+        "src": "/bookViewer/iconMask.png",
+        "type": "image/png",
+        "sizes": "512x512",
+        "purpose":"maskable"
+    }],
+    "start_url": "/bookViewer/",
+    "background_color": "#202020",
+    "display": "standalone",
+    "theme_color": "#000000"
+  }
