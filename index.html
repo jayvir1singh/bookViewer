@@ -6,6 +6,28 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
         <link href="splash1242.png" sizes="1242x2208" rel="apple-touch-startup-image">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            const disableIOSInputZoom = () => {
+                const el = document.querySelector("meta[name=viewport]");
+            
+                if(el !== null) {
+                    let content = el.getAttribute("content");
+                    let re = /maximum\-scale=[0-9\.]+/g;
+
+                    if(re.test(content)) {
+                        content = content.replace(re, "maximum-scale=1.0");
+                    }
+                    else {
+                        content = [content, "maximum-scale=1.0"].join(', ');
+                    }
+                
+                    el.setAttribute("content", content);
+                }
+            };
+            
+            const checkIsIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
+            if(checkIsIOS()) disableIOSInputZoom();
+        </script>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="dark.css" id="darkStyleSheet">
         <link rel="stylesheet" href="oled.css" id="oledStyleSheet" disabled>
