@@ -205,20 +205,26 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     }
 }
 
-
 @media only screen and (max-width: 495px) {
     #settingsContainer {
         width: 85%;
     }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 340px) {
+    #pageContent img {
+        min-width: 170px;
+        min-height: 170px;
+    }
+}
+
+@media only screen and (max-width: 310px) {
     #pagesPrev, #pagesNext {
         font-size: 27px;
     }
 }
 
-@media only screen and (max-width: 240px) {
+@media only screen and (max-width: 250px) {
     #pagesPrev, #pagesNext {
         font-size: 20px;
     }
@@ -229,14 +235,18 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 215px) {
+    #settingsIdInput, #urlInput, #lazyLoadSpaceInput, #lazyLoadTimeoutInput, #chaptersPicker {
+        width: 100px;
+    }
+    #settingsContainer button {
+        width: 100px;
+    }
     #pageContent img {
-        min-width: 170px;
-        min-height: 170px;
+        min-width: 140px;
+        min-height: 140px;
     }
 }
-
-
 
 input[type="checkbox"] {
     -moz-appearance:none;
