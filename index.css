@@ -53,7 +53,7 @@ body {
     border: 1px solid black;
 }
 
-#pagesPrev, #pagesNext, #pagesNext {
+#pagesPrev, #pagesNext {
     display: inline-block;
     opacity: 0.7;
     font-size: 37;
@@ -121,13 +121,6 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     margin: 6px;
 }
 
-@media only screen and (max-width: 645px) {
-    #navBar > * {
-        margin-bottom: 13px;
-        display: block;
-    }
-}
-
 #description, #coverImage, #pageContent img, #settingsContainer, #info, #title {
     background-color: white;
     border: 1px black solid;
@@ -185,4 +178,36 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+
+@media only screen and (max-width: 645px) {
+    #navBar > * {
+        margin-bottom: 13px;
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    #pagesPrev, #pagesNext {
+        font-size: 27px;
+    }
+}
+
+@media only screen and (max-width: 240px) {
+    #pagesPrev, #pagesNext {
+        font-size: 20px;
+    }
+
+    #settingsIdInput, #urlInput, #lazyLoadSpaceInput, #lazyLoadTimeoutInput, #chaptersPicker {
+        width: 150px;
+    }
+}
+
+
+@media only screen and (max-width: 340px) {
+    #pageContent img {
+        min-width: 170px;
+        min-height: 170px;
+    }
 }
