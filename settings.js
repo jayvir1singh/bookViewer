@@ -61,6 +61,8 @@ settingsSaveButton.addEventListener("click", settingsSave);
 settingsClearButton.addEventListener("click", settingsClear);
 urlSubmit.addEventListener("click", urlFunc);
 filesButton.addEventListener("click", () => filesInput.click());
+directoryButton.addEventListener("click", () => directoryInput.click());
+directoriesButton.addEventListener("click", () => directoriesInput.click());
 toggleFullscreenButton.addEventListener("click", toggleFullScreen);
 
 
@@ -68,7 +70,9 @@ lazyLoadSpaceInput.addEventListener("change", settingslazyLoadSpace);
 lazyLoadTimeoutInput.addEventListener("change", settingslazyLoadTimeout);
 darkEnabledInput.addEventListener("change", darkEnabledChange);
 infoEnabledInput.addEventListener("change", infoEnabledChange);
-filesInput.addEventListener("change", filesInputChange);
+filesInput.addEventListener("change", filesOrDirectoryInputChange);
+directoryInput.addEventListener("change", filesOrDirectoryInputChange);
+directoriesInput.addEventListener("change", filesOrDirectoryInputChange);
 
 settingsIdInput.addEventListener("keyup", (e) => {
     if(e.code === "Enter") {
@@ -161,12 +165,7 @@ function settingsToggle() {
 
 async function urlFunc() {
     if((urlInput.value === "db:bookDatabase" && filesCacheInput.checked) || urlInput.value === "files:internal") {
-        if(urlInput.value === "db:bookDatabase") {
-            files = await readDB();
-        }
-        else {
-            files = filesInput.files;
-        }
+        if(urlInput.value === "db:bookDatabase") files = await readDB();
 
         var jsonFile = Array.from(files).find(val => val.name.endsWith(".js"));
         return LoadExternalScirpt(jsonFile);
@@ -267,13 +266,14 @@ function LoadExternalScirpt(src) {
     return prom;
 }
 
-async function filesInputChange() {
+async function filesOrDirectoryInputChange(e) {
     if(filesCacheInput.checked) {
         urlInput.value = "db:bookDatabase";
-        await writeDB(filesInput.files);
+        await writeDB(e.target.files);
     }
     else {
         urlInput.value = "files:internal";
+        files = e.target.files;
     }
     await urlFunc();
 }
