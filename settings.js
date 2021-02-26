@@ -186,11 +186,11 @@ function settingslazyLoadTimeout() {
 function themePickerChange() {
     if(themePicker.value === "dark") {
         darkStyleSheet.disabled = false;
-        setTimeout(() => oledStyleSheet.disabled = true, 0);
+        setTimeout(() => oledStyleSheet.disabled = true, 500);
     }
     else if(themePicker.value === "oled") {
         oledStyleSheet.disabled = false;
-        setTimeout(() => darkStyleSheet.disabled = true, 0);
+        setTimeout(() => darkStyleSheet.disabled = true, 500);
     }
     else {
         darkStyleSheet.disabled = true;
