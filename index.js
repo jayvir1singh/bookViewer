@@ -407,7 +407,7 @@ async function writeDB(files) {
 
 typePickerPopulate();
 
-if(navigator.userAgent.includes("Android")) {
+if(navigator.userAgent.includes("Android") || navigator.userAgent.includes("iPhone")) {
     filesInput.webkitdirectory = false;
     filesInput.multiple = true;
 }
