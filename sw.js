@@ -1,8 +1,9 @@
-var cacheName = "v12";
+var cacheName = "v13";
 var cacheFiles = [
     'index.html',
     'index.css',
     'dark.css',
+    'oled.css',
     'not_available.jpeg',
     'loading.gif',
     'checkmark_black.png',
