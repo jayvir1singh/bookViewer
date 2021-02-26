@@ -9,7 +9,7 @@ body {
     color: white;
 }
 
-#settingsContainer > input, #settingsContainer > button, #settingsContainer > div, #info > * {
+#settingsContainer input, #settingsContainer select, #settingsContainer button, #settingsContainer div, #info > * {
     background-color: #353438;
 }
 

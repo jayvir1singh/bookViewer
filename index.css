@@ -127,7 +127,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     color: black;
 }
 
-#settingsContainer > input, #settingsContainer > button, #settingsContainer > div,  #info > * {
+#settingsContainer input, #settingsContainer select, #settingsContainer button, #settingsContainer div,  #info > * {
     background-color: #e8e8e8;
 }
 

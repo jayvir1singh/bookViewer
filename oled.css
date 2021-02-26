@@ -1,0 +1,15 @@
+@import url("dark.css");
+
+body {
+    background-color: black;
+}
+
+#coverImage, #pageContent img, #settingsContainer, #info, button, input, select, #pagesPrev, #pagesNext, #pwaInstallInput {
+    background-color: #202020;
+    border:1px solid white;
+    color: white;
+}
+
+#settingsContainer input, #settingsContainer select, #settingsContainer button, #settingsContainer div, #info > * {
+    background-color: #4e4e4e;
+}

@@ -407,11 +407,6 @@ async function writeDB(files) {
 
 typePickerPopulate();
 
-if(navigator.userAgent.includes("Android") || navigator.userAgent.includes("iPhone")) {
-    filesInput.webkitdirectory = false;
-    filesInput.multiple = true;
-}
-
 navigator.serviceWorker.register("sw.js");
 window.addEventListener("beforeinstallprompt", (e) => {
     async function pwaInstallClick() {
