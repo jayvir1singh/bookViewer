@@ -7,7 +7,7 @@ var urlInput = document.querySelector("#urlInput");
 var urlSubmit = document.querySelector("#urlSubmit");
 var lazyLoadSpaceInput = document.querySelector("#lazyLoadSpaceInput");
 var lazyLoadTimeoutInput = document.querySelector("#lazyLoadTimeoutInput");
-var darkEnabledInput = document.querySelector("#darkEnabledInput");
+var themePicker = document.querySelector("#themePicker");
 var infoEnabledInput = document.querySelector("#infoEnabledInput");
 var filesButton = document.querySelector("#filesButton");
 var toggleFullscreenButton = document.querySelector("#toggleFullscreenButton");
@@ -68,7 +68,7 @@ toggleFullscreenButton.addEventListener("click", toggleFullScreen);
 
 lazyLoadSpaceInput.addEventListener("change", settingslazyLoadSpace);
 lazyLoadTimeoutInput.addEventListener("change", settingslazyLoadTimeout);
-darkEnabledInput.addEventListener("change", darkEnabledChange);
+themePicker.addEventListener("change", themePickerChange);
 infoEnabledInput.addEventListener("change", infoEnabledChange);
 filesInput.addEventListener("change", filesOrDirectoryInputChange);
 directoryInput.addEventListener("change", filesOrDirectoryInputChange);
@@ -94,7 +94,7 @@ function settingsLoad() {
         url,
         lazyLoadSpace,
         lazyLoadTimeout,
-        darkEnabled,
+        theme,
         infoEnabled,
         filesCache,
         chapter,
@@ -108,13 +108,13 @@ function settingsLoad() {
     lazyLoadSpaceInput.value = lazyLoadSpace;
     lazyLoadTimeoutInput.value = lazyLoadTimeout;
     scrollHistoryInput.checked = scrollHistory;
-    darkEnabledInput.checked = darkEnabled;
+    themePicker.value = theme;
     infoEnabledInput.checked = infoEnabled;
     filesCacheInput.checked = filesCache;
     scrollHistoryValue = scrollHistoryIndex;
     settingslazyLoadSpace();
     settingslazyLoadTimeout();
-    darkEnabledChange();
+    themePickerChange();
     infoEnabledChange();
     
     urlFunc().then(() => {
@@ -135,7 +135,7 @@ function settingsSave() {
         lazyLoadSpace:lazyLoadSpaceInput.value,
         lazyLoadTimeout:lazyLoadTimeoutInput.value,
         scrollHistory:scrollHistoryInput.checked,
-        darkEnabled:darkEnabledInput.checked,
+        theme:themePicker.value,
         infoEnabled:infoEnabledInput.checked,
         filesCache:filesCacheInput.checked,
         chapter:chaptersPicker.selectedIndex,
@@ -183,8 +183,19 @@ function settingslazyLoadTimeout() {
     lazyLoad.timeout = parseInt(lazyLoadTimeoutInput.value);
 }
 
-function darkEnabledChange() {
-    darkStyleSheet.disabled = !(darkEnabledInput.checked);
+function themePickerChange() {
+    if(themePicker.value === "dark") {
+        darkStyleSheet.disabled = false;
+        setTimeout(() => oledStyleSheet.disabled = true, 0);
+    }
+    else if(themePicker.value === "oled") {
+        oledStyleSheet.disabled = false;
+        setTimeout(() => darkStyleSheet.disabled = true, 0);
+    }
+    else {
+        darkStyleSheet.disabled = true;
+        oledStyleSheet.disabled = true;
+    }
 }
 
 function infoEnabledChange() {
@@ -196,13 +207,12 @@ function infoEnabledChange() {
     }
 }
 
-
 settingsToggleButton.addEventListener("click", settingsSave);
 urlSubmit.addEventListener("click", settingsSave);
 toggleFullscreenButton.addEventListener("click", settingsSave);
 lazyLoadSpaceInput.addEventListener("change", settingsSave);
 lazyLoadTimeoutInput.addEventListener("change", settingsSave);
-darkEnabledInput.addEventListener("change", settingsSave);
+themePicker.addEventListener("change", settingsSave);
 infoEnabledInput.addEventListener("change", settingsSave);
 scrollHistoryInput.addEventListener("change", settingsSave);
 filesCacheInput.addEventListener("change", settingsSave);
