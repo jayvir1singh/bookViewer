@@ -109,7 +109,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 }
 
 #settingsContainer, #info, #title {
-    width: fit-content;
+    width: max-content;
     padding: 10px;
 }
 
@@ -210,4 +210,12 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
         min-width: 170px;
         min-height: 170px;
     }
+}
+
+input[type="checkbox"] {
+    -moz-appearance:none;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
