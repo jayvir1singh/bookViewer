@@ -340,7 +340,9 @@ async function resetSW() {
     if(isAccept) {
         var sw = await navigator.serviceWorker.ready;
         await sw.unregister();
-        var cachesKeys = (await caches.keys());
+        var cachesKeys = (await caches.keys().catch(() => {
+            return [];
+        }));
         for(let cacheName of cachesKeys) {
             await caches.delete(cacheName);
         }
