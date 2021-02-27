@@ -1,4 +1,4 @@
-var cacheName = "v18";
+var cacheName = "v20";
 var cacheFiles = [
     'index.html',
     'index.css',
@@ -19,6 +19,7 @@ self.addEventListener("install", async (e) => e.waitUntil(onInstall()));
 self.addEventListener('fetch', (e) => e.respondWith(onfetch(e)));
 
 async function onInstall() {
+    self.skipWaiting();
     var cache = await caches.open(cacheName);
     await cache.addAll(cacheFiles)
 }
