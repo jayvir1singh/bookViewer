@@ -328,8 +328,13 @@ function scrollToImage() {
     }
 }
 
+async function updateSW() {
+    var sw = await navigator.serviceWorker.ready;
+    await sw.update();
+}
+
 async function resetSW() {
-    var isAccept = confirm("Offline mode will be disabled until next network connection. Are you sure you want to update?");
+    var isAccept = confirm("Offline mode will be disabled until next network connection. Are you sure you want to reset app?");
     if(isAccept) {
         var sw = await navigator.serviceWorker.ready;
         await sw.unregister();
@@ -343,6 +348,7 @@ async function resetSW() {
 }
 
 async function lastestSWVersion() {
+    await navigator.serviceWorker.ready;
     var cachesKeys = (await caches.keys()).catch(() => []);
     if(cachesKeys.length === 0) {
         settingsVersion.innerText = "Version: x";
