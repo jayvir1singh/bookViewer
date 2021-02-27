@@ -1,4 +1,4 @@
-var cacheName = "v16";
+var cacheName = "v17";
 var cacheFiles = [
     'index.html',
     'index.css',
