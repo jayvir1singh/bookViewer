@@ -16,8 +16,13 @@
         <link href="appleSplashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
         <link href="appleSplashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--<script>
+        <script>
             const disableIOSInputZoom = () => {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.styleSheet.cssText = 'input, select:focus {font-size:16px;}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+                return;
                 const el = document.querySelector("meta[name=viewport]");
             
                 if(el !== null) {
@@ -37,26 +42,7 @@
             
             const checkIsIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
             if(checkIsIOS()) disableIOSInputZoom();
-        </script>-->
-
-        <style>
-input, select:focus, select {
-    /* enlarge by 16/12 = 133.33% */
-    border-radius: 6.666666667px;
-    font-size: 16px;
-    line-height: 26.666666667px;
-    padding: 6.666666667px;
-    width: 133.333333333%;
-
-    /* scale down by 12/16 = 75% */
-    transform: scale(0.75);
-    transform-origin: left top;
-
-    /* remove extra white space */
-    margin-bottom: -10px;
-    margin-right: -33.333333333%;
-}
-        </style>
+        </script>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="dark.css" id="darkStyleSheet">
         <link rel="stylesheet" href="oled.css" id="oledStyleSheet" disabled>
