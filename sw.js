@@ -1,4 +1,4 @@
-var cacheName = "v26";
+var cacheName = "v22";
 var cacheFiles = [
     'index.html',
     'index.css',
@@ -15,10 +15,7 @@ var cacheFiles = [
     "/",
 ];
 
-self.addEventListener("install", async (e) => {
-    self.skipWaiting();
-    e.waitUntil(onInstall());
-});
+self.addEventListener("install", async (e) => e.waitUntil(onInstall()));
 self.addEventListener('fetch', (e) => e.respondWith(onfetch(e)));
 
 async function onInstall() {
