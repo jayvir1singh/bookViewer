@@ -1,4 +1,4 @@
-var cacheName = "v32";
+var cacheName = "v33";
 var cacheFiles = [
     'index.html',
     'index.css',
