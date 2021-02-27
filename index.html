@@ -27,12 +27,6 @@
             const checkIsIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
             if(checkIsIOS()) disableIOSInputZoom();
         </script>
-
-        <style>
-            body {
-                touch-action: manipulation;
-            }
-        </style>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="dark.css" id="darkStyleSheet">
         <link rel="stylesheet" href="oled.css" id="oledStyleSheet" disabled>
@@ -45,7 +39,6 @@
         <center>
             <button id="settingsToggleButton">Toggle Settings</button>
             <div id="settingsContainer">
-                <p>Version: 24</p>
                 <p>Settings Id:</p>
                 <input id="settingsIdInput" autocorrect="none" autocapitalize="none" autocomplete="none">
                 <br>
