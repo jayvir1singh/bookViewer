@@ -343,7 +343,7 @@ async function resetSW() {
 }
 
 async function lastestSWVersion() {
-    var cachesKeys = (await caches.keys());
+    var cachesKeys = (await caches.keys()).catch(() => []);
     if(cachesKeys.length === 0) {
         settingsVersion.innerText = "Version: x";
     }
