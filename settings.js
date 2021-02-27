@@ -44,7 +44,7 @@ function ExtractBaseURL(val) {
     return val.substr(0, (val.lastIndexOf("/") + 1));
 }
 
-if(localStorage.getItem === undefined) location.href = "about:blank";
+if(localStorage === undefined) location.href = "about:blank";
 var settingsId = localStorage.getItem("settingsCurrentId");
 if(settingsId === null || settingsId === undefined) {
     settingsIdInput.value = "default";
