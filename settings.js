@@ -44,6 +44,7 @@ function ExtractBaseURL(val) {
     return val.substr(0, (val.lastIndexOf("/") + 1));
 }
 
+if(localStorage.getItem === undefined) location.href = "about:blank";
 var settingsId = localStorage.getItem("settingsCurrentId");
 if(settingsId === null || settingsId === undefined) {
     settingsIdInput.value = "default";
@@ -366,7 +367,7 @@ async function lastestSWVersion() {
         if(cachesKeys.length !== 0) settingsVersion.innerText = "Version: " + cachesKeys[cachesKeys.length -1];
     }
     catch(e) {
-        alert(e.stack);
+        console.error(e);
     }
 }
 
