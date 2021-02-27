@@ -18,7 +18,7 @@
         <link href="appleSplashscreens/iphonexsmax_splash.png" sizes="1242x2688" rel="apple-touch-startup-image">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script>
-            window.onerror = function(message, source, lineno, colno, error) { alert(message, source, lineno, colno, error); };
+            window.onerror = function(message, source, lineno, colno, error) { alert(`${message}\n ${source}\n ${lineno}:${colno}`); };
             const disableIOSInputZoom = () => {
                 var style = document.createElement('style');
                 style.type = 'text/css';
