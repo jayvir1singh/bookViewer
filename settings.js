@@ -348,14 +348,10 @@ async function resetSW() {
 }
 
 async function lastestSWVersion() {
+    settingsVersion.innerText = "Version: x";
     await navigator.serviceWorker.ready;
     var cachesKeys = (await caches.keys()).catch(() => []);
-    if(cachesKeys.length === 0) {
-        settingsVersion.innerText = "Version: x";
-    }
-    else {
-        settingsVersion.innerText = "Version: " + cachesKeys[cachesKeys.length -1];
-    }
+    if(cachesKeys.length !== 0) settingsVersion.innerText = "Version: " + cachesKeys[cachesKeys.length -1];
 }
 
 lastestSWVersion();
