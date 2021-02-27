@@ -19,7 +19,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <script>
-            window.onerror = function(message, source, lineno, colno, error) { alert(message); };
+            window.onerror = function(message, source, lineno, colno, error) { alert(message, source, lineno, colno, error); };
             const disableIOSInputZoom = () => {
                 var style = document.createElement('style');
                 style.type = 'text/css';
