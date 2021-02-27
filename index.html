@@ -16,7 +16,7 @@
         <link href="appleSplashscreens/ipadpro3_splash.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
         <link href="appleSplashscreens/ipadpro2_splash.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script>
+        <!--<script>
             const disableIOSInputZoom = () => {
                 const el = document.querySelector("meta[name=viewport]");
             
@@ -37,7 +37,13 @@
             
             const checkIsIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
             if(checkIsIOS()) disableIOSInputZoom();
-        </script>
+        </script>-->
+
+        <style>
+            body {
+                touch-action: manipulation;
+            }
+        </style>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="dark.css" id="darkStyleSheet">
         <link rel="stylesheet" href="oled.css" id="oledStyleSheet" disabled>
