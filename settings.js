@@ -327,3 +327,31 @@ function scrollToImage() {
         document.images[scrollHistoryValue].addEventListener("load", resetScrollLock);
     }
 }
+
+async function resetSW() {
+    var isAccept = confirm("Offline mode will be disabled until next network connection. Are you sure you want to update?");
+    if(isAccept) {
+        var sw = await navigator.serviceWorker.ready;
+        await sw.unregister();
+        var cachesKeys = (await caches.keys());
+        for(let cacheName of cachesKeys) {
+            await caches.delete(cacheName);
+        }
+        window.close();
+        location.reload();
+    }
+}
+
+async function lastestSWVersion() {
+    var cachesKeys = (await caches.keys());
+    if(cachesKeys.length === 0) {
+        settingsVersion.innerText = "Version: x";
+    }
+    else {
+        settingsVersion.innerText = "Version: " + cachesKeys[cachesKeys.length -1];
+    }
+}
+
+lastestSWVersion();
+
+settingsResetSW.addEventListener("click", resetSW);
