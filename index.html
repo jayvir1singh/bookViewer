@@ -20,7 +20,7 @@
             const disableIOSInputZoom = () => {
                 var style = document.createElement('style');
                 style.type = 'text/css';
-                style.styleSheet.cssText = 'input, select:focus {font-size:16px;}';
+                style.appendChild(document.createTextNode('input, select:focus {font-size:16px;}'));
                 document.getElementsByTagName('head')[0].appendChild(style);
                 return;
                 const el = document.querySelector("meta[name=viewport]");
@@ -43,6 +43,12 @@
             const checkIsIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
             if(checkIsIOS()) disableIOSInputZoom();
         </script>
+
+        <style>
+            body {
+                touch-action: manipulation;
+            }
+        </style>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="dark.css" id="darkStyleSheet">
         <link rel="stylesheet" href="oled.css" id="oledStyleSheet" disabled>
@@ -55,7 +61,6 @@
         <center>
             <button id="settingsToggleButton">Toggle Settings</button>
             <div id="settingsContainer">
-                <p>Version: 7.0</p>
                 <p>Settings Id:</p>
                 <input id="settingsIdInput" autocorrect="none" autocapitalize="none" autocomplete="none">
                 <br>
