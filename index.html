@@ -17,8 +17,8 @@
         <link href="appleSplashscreens/iphonexr_splash.png" sizes="828x1792" rel="apple-touch-startup-image">
         <link href="appleSplashscreens/iphonexsmax_splash.png" sizes="1242x2688" rel="apple-touch-startup-image">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
         <script>
-            window.onerror = function(message, source, lineno, colno, error) { alert(`${message}\n ${source}\n ${lineno}:${colno}`); };
             const disableIOSInputZoom = () => {
                 var style = document.createElement('style');
                 style.type = 'text/css';
@@ -35,7 +35,6 @@
         <link rel="manifest" href="manifest.json">
         <script src="index.js" defer></script>
         <script src="settings.js" defer></script>
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     </head>
     <body>
         <div id="pwaInstallInput" tabindex="0">install</div>
@@ -64,6 +63,7 @@
                         <option value="oled">Oled</option>
                     </select>
                 </p>
+                <p>Debug Mode: <input id="debugModeInput" type="checkbox"></p>
                 <p>Scroll History: <input id="scrollHistoryInput" type="checkbox" checked></p>
                 <p>Hide Cover Art: <input id="infoEnabledInput" type="checkbox"></p>
                 <p>Cache Files: <input id="filesCacheInput" type="checkbox" checked></p>
