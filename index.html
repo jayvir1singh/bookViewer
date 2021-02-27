@@ -3,9 +3,22 @@
         <title>Book Viewer</title>
         <link rel="icon" type="image/png" href="iconMask.png">
         <link rel="apple-touch-icon" href="iconMask.png">
+        <meta name="mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-capable" content="yes">
-        <link href="splash1242.png" sizes="1242x2208" rel="apple-touch-startup-image">
+        <link href="appleSplashscreens/iphoneplus_splash.png" sizes="1242x2208" rel="apple-touch-startup-image">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <script>
+            const disableIOSInputZoom = () => {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.appendChild(document.createTextNode('input, select, select:focus { font-size: 16; transform: scale(0.85); margin:5px 0 5px 0;}'));
+                document.getElementsByTagName('head')[0].appendChild(style);
+            };
+            
+            const checkIsIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
+            if(checkIsIOS()) disableIOSInputZoom();
+        </script>
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="dark.css" id="darkStyleSheet">
         <link rel="stylesheet" href="oled.css" id="oledStyleSheet" disabled>
@@ -16,7 +29,7 @@
     <body>
         <div id="pwaInstallInput" tabindex="0">install</div>
         <center>
-            <button id="settingsToggleButton">Toggle Settings</button>
+            <button id="settingsToggleButton">Toggl e Settings</button>
             <div id="settingsContainer">
                 <p>Settings Id:</p>
                 <input id="settingsIdInput" autocorrect="none" autocapitalize="none" autocomplete="none">
@@ -40,6 +53,7 @@
                         <option value="oled">Oled</option>
                     </select>
                 </p>
+                <p>Debug Mode: <input id="debugModeInput" type="checkbox"></p>
                 <p>Scroll History: <input id="scrollHistoryInput" type="checkbox" checked></p>
                 <p>Hide Cover Art: <input id="infoEnabledInput" type="checkbox"></p>
                 <p>Cache Files: <input id="filesCacheInput" type="checkbox" checked></p>
