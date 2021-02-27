@@ -20,24 +20,8 @@
             const disableIOSInputZoom = () => {
                 var style = document.createElement('style');
                 style.type = 'text/css';
-                style.appendChild(document.createTextNode('input, select:focus {font-size:16px;}'));
+                style.appendChild(document.createTextNode('input, select, select:focus { font-size: 16; transform: scale(0.85); margin:5px 0 5px 0;}'));
                 document.getElementsByTagName('head')[0].appendChild(style);
-                return;
-                const el = document.querySelector("meta[name=viewport]");
-            
-                if(el !== null) {
-                    let content = el.getAttribute("content");
-                    let re = /maximum\-scale=[0-9\.]+/g;
-
-                    if(re.test(content)) {
-                        content = content.replace(re, "maximum-scale=1.0");
-                    }
-                    else {
-                        content = [content, "maximum-scale=1.0"].join(', ');
-                    }
-                
-                    el.setAttribute("content", content);
-                }
             };
             
             const checkIsIOS = () => /iPad|iPhone|iPod/.test(navigator.userAgent);
