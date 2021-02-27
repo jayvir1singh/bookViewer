@@ -329,10 +329,15 @@ function scrollToImage() {
 }
 
 async function updateSW() {
-    var sw = await navigator.serviceWorker.ready;
-    await sw.update();
-    window.close();
-    location.reload();
+    try {
+        var sw = await navigator.serviceWorker.ready;
+        await sw.update();
+        window.close();
+        location.reload();
+    }
+    catch(e) {
+        console.error(e);
+    }
 }
 
 async function resetSW() {
@@ -353,11 +358,16 @@ async function resetSW() {
 
 async function lastestSWVersion() {
     settingsVersion.innerText = "Version: x";
-    await navigator.serviceWorker.ready;
-    var cachesKeys = (await caches.keys().catch(() => {
-        return [];
-    }));
-    if(cachesKeys.length !== 0) settingsVersion.innerText = "Version: " + cachesKeys[cachesKeys.length -1];
+    try {
+        await navigator.serviceWorker.ready;
+        var cachesKeys = (await caches.keys().catch(() => {
+            return [];
+        }));
+        if(cachesKeys.length !== 0) settingsVersion.innerText = "Version: " + cachesKeys[cachesKeys.length -1];
+    }
+    catch(e) {
+        alert(e.stack);
+    }
 }
 
 lastestSWVersion();
