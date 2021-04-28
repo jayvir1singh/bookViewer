@@ -149,7 +149,7 @@ var lazyLoad = {
 }
 
 function imageLoaded(e) {
-    unloadBlob(e.target.waitSrc);
+    unloadBlob(e.target.src);
     e.target.style.minHeight = "10px";
     e.target.style.minWidth = "10px";
     e.target.style.backgroundImage = "none";
